@@ -38,19 +38,9 @@
     self.updateTime = [NSDate new];
 }
 
-- (instancetype)initWithDownloadURL:(NSString *)url progress:(RZDownloadProgress)progress complete:(RZDownloadComplete)complete {
+- (instancetype)init {
     if (self = [super init]) {
         self.creatTime = [NSDate new];
-        self.downloadURL = url;
-        self.fileName = [RZFileManager checkFileName:[url lastPathComponent]];
-        self.relativeLocalFilePath = [RZRelativeFileDirectory stringByAppendingPathComponent:self.fileName];
-        
-        [self rz_insertDataToDBTable];
-        _preogress = progress;
-        _downloadComplete = complete;
-       
-        [self downLoad];
-        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appKilled:) name:UIApplicationWillTerminateNotification object:nil];
     }
     return self;
@@ -58,6 +48,28 @@
 
 - (void)appKilled:(id)sender {
     [self cancel];
+}
+
+- (void)downloadWithURL:(NSString *)url {
+    _downloadURL = url;
+    
+    [self rz_insertDataToDBTable];
+    
+    [self reDownLoad];
+}
+
+- (NSString *)fileName {
+    if (_fileName.length == 0) {
+        _fileName = [self.downloadURL lastPathComponent];
+    }
+    return _fileName;
+}
+
+- (NSString *)relativeLocalFilePath {
+    if(_relativeLocalFilePath.length == 0) {
+        _relativeLocalFilePath = [RZRelativeFileDirectory stringByAppendingPathComponent:self.fileName];
+    }
+    return _relativeLocalFilePath;
 }
 
 /**
@@ -73,7 +85,7 @@
     NSLog(@"%s", __FUNCTION__);
 }
 
-- (void)downLoad {
+- (void)reDownLoad {
     //远程地址
     NSURL *URL = [NSURL URLWithString:self.downloadURL];
     //默认配置

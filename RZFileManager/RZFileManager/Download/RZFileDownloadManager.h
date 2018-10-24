@@ -41,12 +41,15 @@ typedef NS_ENUM(NSInteger, RZFileDownloadStatus) {
 @property (nonatomic, strong) NSDate *creatTime;
 // 更新时间
 @property (nonatomic, strong) NSDate *updateTime;
+// 额外的参数，可以放在这里
+@property (nonatomic, strong) NSDictionary *specialEXParams;
 
 @property (nonatomic, copy) RZDownloadProgress preogress; // 进度
 
 @property (nonatomic, copy) RZDownloadComplete downloadComplete; // 完成之后的回调
 
-- (instancetype)initWithDownloadURL:(NSString *)url progress:(RZDownloadProgress)progress complete:(RZDownloadComplete)complete;
+// 首次下载时，调用，请配置好fileName，如果没有fileName，则从url中获取文件名
+- (void)downloadWithURL:(NSString *)url;
 
 /**
  本地全路径
@@ -56,9 +59,9 @@ typedef NS_ENUM(NSInteger, RZFileDownloadStatus) {
 - (NSString *)localFilePath;
 
 /**
- 下载
+ 重新下载
  */
-- (void)downLoad;
+- (void)reDownLoad;
 
 /**
   取消

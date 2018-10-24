@@ -48,11 +48,15 @@
     if (sender.tag == 0) {
         // Do any additional setup after loading the view, typically from a nib.
         NSString *url = @"http://dl.paragon-software.com/demo/ntfsmac15_trial.dmg";
-        self.manage = [[RZFileDownloadManager alloc] initWithDownloadURL:url progress:^(CGFloat fileSize, CGFloat progress) {
+        self.manage = [[RZFileDownloadManager alloc] init];
+        self.manage.fileName = @"hhhhh.dmg";
+        [self.manage downloadWithURL:url];
+        self.manage.preogress = ^(CGFloat fileSize, CGFloat progress) {
             NSLog(@"fileSize:%lf progress:%lf", fileSize, progress);
-        } complete:^(NSError *error, NSString *filePath, NSString *relativeFilePath) {
-            NSLog(@"filePath:%@\n\n relativeFilePath:%@", filePath, relativeFilePath);
-        }];
+        };
+        self.manage.downloadComplete = ^(NSError *error, NSString *filePath, NSString *relativeFilePath) {
+            NSLog(@"filePath:%@\n\n", filePath);
+        };
     } else if (sender.tag == 1) {
         [self.manage cancel];
     } else if (sender.tag == 3) {
