@@ -202,8 +202,16 @@
 }
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    __weak typeof(self) weakSelf = self;
     UITableViewRowAction *action = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
+        RZFileDownloadManager *file = weakSelf.files[indexPath.row];
+        [file deleteFromCache];
+        [weakSelf.selectedFiles removeObject:file];
+        [weakSelf.files removeObject:file];
+        [weakSelf.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+        });
     }];
     return @[action];
 }
