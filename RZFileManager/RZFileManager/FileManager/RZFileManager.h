@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 extern NSString * const RZRelativeFileDirectory;
 
 @interface RZFileManager : NSObject
@@ -22,4 +24,20 @@ extern NSString * const RZRelativeFileDirectory;
 + (BOOL)hasFile:(NSString *)fileName;
 
 + (BOOL)deleteFile:(NSString *)filePath;
+
+@end
+@interface RZFileManager (fileType)
+// fileType：URL的后缀，如MP3，png
++ (BOOL)isMusic:(NSString *)fileType;
++ (BOOL)isVideo:(NSString *)fileType;
++ (BOOL)isWord:(NSString *)fileType;
++ (BOOL)isExcel:(NSString *)fileType;
++ (BOOL)isPPT:(NSString *)fileType;
++ (BOOL)isPDF:(NSString *)fileType;
++ (BOOL)isTXT:(NSString *)fileType;
++ (BOOL)isZip:(NSString *)fileType;
++ (BOOL)isImage:(NSString *)fileType;
+
++ (UIImage *)imageByType:(NSString *)fileType;
+
 @end

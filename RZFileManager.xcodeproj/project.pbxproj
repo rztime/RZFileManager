@@ -16,6 +16,8 @@
 		76BA340F21785AB9000456E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76BA340D21785AB9000456E3 /* LaunchScreen.storyboard */; };
 		76BA341221785AB9000456E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BA341121785AB9000456E3 /* main.m */; };
 		76BA342321785E74000456E3 /* RZFileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BA342221785E74000456E3 /* RZFileDownloadManager.m */; };
+		845079CF218B2DC500A2A1F8 /* RZFIleManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845079CE218B2DC500A2A1F8 /* RZFIleManageViewController.m */; };
+		84EB84DB218FDC25009FD52B /* RZFileManagerFileSource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84EB84DA218FDC25009FD52B /* RZFileManagerFileSource.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,9 @@
 		76BA341121785AB9000456E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		76BA342121785E74000456E3 /* RZFileDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZFileDownloadManager.h; sourceTree = "<group>"; };
 		76BA342221785E74000456E3 /* RZFileDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZFileDownloadManager.m; sourceTree = "<group>"; };
+		845079CD218B2DC500A2A1F8 /* RZFIleManageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZFIleManageViewController.h; sourceTree = "<group>"; };
+		845079CE218B2DC500A2A1F8 /* RZFIleManageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZFIleManageViewController.m; sourceTree = "<group>"; };
+		84EB84DA218FDC25009FD52B /* RZFileManagerFileSource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RZFileManagerFileSource.bundle; sourceTree = "<group>"; };
 		E65CC5A885BBEB6F6EA557ED /* Pods-RZFileManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZFileManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RZFileManager/Pods-RZFileManager.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +93,7 @@
 		76BA341821785B71000456E3 /* RZFileManager */ = {
 			isa = PBXGroup;
 			children = (
+				845079D0218B2DCB00A2A1F8 /* Code */,
 				76BA341B21785BC4000456E3 /* FileManager */,
 				76BA341921785BAC000456E3 /* Download */,
 			);
@@ -108,8 +114,18 @@
 			children = (
 				76ADB211217EFDBA006BDF56 /* RZFileManager.h */,
 				76ADB212217EFDBA006BDF56 /* RZFileManager.m */,
+				845079CD218B2DC500A2A1F8 /* RZFIleManageViewController.h */,
+				845079CE218B2DC500A2A1F8 /* RZFIleManageViewController.m */,
+				84EB84DA218FDC25009FD52B /* RZFileManagerFileSource.bundle */,
 			);
 			path = FileManager;
+			sourceTree = "<group>";
+		};
+		845079D0218B2DCB00A2A1F8 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Code;
 			sourceTree = "<group>";
 		};
 		AA99BD7D48195DD304B4D1B1 /* Frameworks */ = {
@@ -189,6 +205,7 @@
 			files = (
 				76BA340F21785AB9000456E3 /* LaunchScreen.storyboard in Resources */,
 				76BA340C21785AB9000456E3 /* Assets.xcassets in Resources */,
+				84EB84DB218FDC25009FD52B /* RZFileManagerFileSource.bundle in Resources */,
 				76BA340A21785AB7000456E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +243,7 @@
 				76BA341221785AB9000456E3 /* main.m in Sources */,
 				76BA340421785AB7000456E3 /* AppDelegate.m in Sources */,
 				76BA342321785E74000456E3 /* RZFileDownloadManager.m in Sources */,
+				845079CF218B2DC500A2A1F8 /* RZFIleManageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
