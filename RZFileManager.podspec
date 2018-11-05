@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RZFileManager"
-  s.version      = "0.0.2"
+  s.version      = "0.0.4"
   s.summary      = "文件下载及缓存数据到数据库和本地的管理"
 
   s.description  = <<-DESC
